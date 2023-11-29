@@ -1,0 +1,8 @@
+.padding-20{
+    padding: 20px;
+}
+.cadastrar-button-container{
+   display: grid;
+   place-items: center;
+   padding-top: 20px;
+}

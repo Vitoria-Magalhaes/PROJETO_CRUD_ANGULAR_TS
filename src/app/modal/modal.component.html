@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+  <p>{{data.description}}</p>
+</mat-dialog-content>
+<!-- nova forma do angular 17 https://javascript.plainenglish.io/angular-17-master-conditional-statements-if-else-switch-for-7d218460645d-->
+@if (data.showFeedbackButtons) {
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" [mat-dialog-close]="false">Não</button>
+  <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Sim</button>
+</mat-dialog-actions>
+}
+@else {
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" [mat-dialog-close]="false">Fechar</button>
+</mat-dialog-actions>
+}

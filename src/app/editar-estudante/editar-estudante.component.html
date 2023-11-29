@@ -1,0 +1,45 @@
+<form [formGroup]="options" (ngSubmit)="onSubmit()" class="form-atualizar">
+    <h2>
+        Atualizar Estudante
+    </h2>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Matrícula</mat-label>
+        <input matInput placeholder="Número da matrícula" formControlName="matricula">
+    </mat-form-field>
+
+    <!-- nome do estudante -->
+    <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="ex.: John Doe" formControlName="nome" />
+        <mat-error *ngIf="options.get('nome')?.hasError('required')">
+            Nome é obrigatório.
+        </mat-error>
+        <mat-error *ngIf="options.get('nome')?.hasError('minlength')">
+            Nome deve ter pelo menos 3 caracteres.
+        </mat-error>
+    </mat-form-field>
+
+    <!-- email do estudante -->
+    <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="ex.: john.doe@example.com" formControlName="email" />
+        <mat-error *ngIf="options.get('email')?.hasError('required')">
+            Email é obrigatório.
+        </mat-error>
+        <mat-error *ngIf="options.get('email')?.hasError('email')">
+            Insira um email válido.
+        </mat-error>
+    </mat-form-field>
+
+    
+  <div class="button-container">
+
+    <!-- enviar formulário -->
+    <a mat-raised-button color="accent" [routerLink]="['/']" routerLinkActive="active" ariaCurrentWhenActive="page">
+        Voltar
+    </a>
+    <button type="submit" mat-raised-button color="primary">Enviar</button>
+        
+    </div>
+</form>
